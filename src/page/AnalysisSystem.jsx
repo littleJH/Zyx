@@ -36,10 +36,10 @@ const AnalysisSystem = () => {
           Fruit Sales Management System
         </div>}
         extra={<img src={closeIcon} style={{
-          width: '20px',
-          height: '20px',
+          width: '25px',
+          height: '25px',
           cursor: 'pointer',
-          opacity: '0.5'
+          opacity: '0.8'
         }}></img>}
       >
         <Layout className='layout-container'>
