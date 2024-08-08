@@ -1,13 +1,14 @@
 import { useState } from 'react';
 import { Button, Card, Layout, Menu, Space } from 'antd';
 import { CloseOutlined, DeleteColumnOutlined, PlusCircleOutlined, PlusSquareOutlined } from '@ant-design/icons';
-import FruitTable from '../component/Info/Index';
 import Sider from 'antd/es/layout/Sider';
 import { Content } from 'antd/es/layout/layout';
-import Xiaoshou from '../component/xiaosho';
-import Kucun from '../component/kucun';
-import LoginForm from '../component/Login';
+import Xiaoshou from '../component/xiaoshou/index'
+import Kucun from '../component/kucun/index';
+import LoginForm from '../component/login';
 import { InsertRowAboveOutlined } from '@ant-design/icons';
+import FruitTable from '../component/info/index';
+import closeIcon from '../assets/icon/close.png'
 
 const contentList = {
   productInfo: <FruitTable></FruitTable>,
@@ -34,7 +35,12 @@ const AnalysisSystem = () => {
         }}>
           Fruit Sales Management System
         </div>}
-        extra={<CloseOutlined />}
+        extra={<img src={closeIcon} style={{
+          width: '20px',
+          height: '20px',
+          cursor: 'pointer',
+          opacity: '0.5'
+        }}></img>}
       >
         <Layout className='layout-container'>
           <Sider className='side-menu'>

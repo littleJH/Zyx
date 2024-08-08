@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Button, Upload, Layout, Modal, Input, Form, Table, Image, Space, Result } from 'antd';
-import { UploadOutlined, CameraOutlined } from '@ant-design/icons';
+import { Button, Upload, Layout, Modal, Input, Form, Table, Image, Space, Result, Select } from 'antd';
+import { CameraOutlined } from '@ant-design/icons';
 
 const { Content } = Layout;
 
@@ -24,17 +24,17 @@ const DetectionPage = () => {
   };
 
   const handleFormSubmit = (values) => {
+    console.log("🚀 ~ handleFormSubmit ~ values:", values)
     // Simulate freshness detection and calculation
     const decayLevels = ['Fresh', 'Moderately Fresh', 'Not Fresh'];
     const discounts = [1.0, 0.8, 0.5];
-    const decayLevel = Math.floor(Math.random() * 3);
-    const discount = discounts[decayLevel];
+    const discount = values.deduction;
     const finalUnitPrice = values.originalPrice * discount;
     const finalPrice = finalUnitPrice * values.weight;
 
     const newItem = {
       name: values.produceName,
-      freshness: decayLevels[decayLevel],
+      freshness: decayLevels[discounts.findIndex(val => val === discount)],
       originalPrice: values.originalPrice,
       discount: discount * 100,
       finalUnitPrice: finalUnitPrice.toFixed(2),
@@ -154,6 +154,14 @@ const DetectionPage = () => {
           >
             <Input type="number" />
           </Form.Item>
+          <Form.Item name="deduction" label="Deduction" rules={[{ required: true, message: 'Please enter the deduction' }]}>
+
+            <Select>
+              <Select.Option value={0.5}>Not Fresh</Select.Option>
+              <Select.Option value={0.8}>Moderately Fresh</Select.Option>
+              <Select.Option value={1}>Fresh</Select.Option>
+            </Select>
+          </Form.Item>
           <Form.Item>
             <Space>
               <Button type="primary" htmlType="submit">
@@ -180,7 +188,7 @@ const DetectionPage = () => {
           title={`The total price of all items is $${calculateTotalPrice()}`}
         />
       </Modal>
-    </Layout>
+    </Layout >
   );
 };
 
