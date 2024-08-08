@@ -5,7 +5,7 @@ import Sider from 'antd/es/layout/Sider';
 import { Content } from 'antd/es/layout/layout';
 import Xiaoshou from '../component/xiaoshou/index'
 import Kucun from '../component/kucun/index';
-import LoginForm from '../component/login/index';
+import LoginForm from '../component/log/index';
 import { InsertRowAboveOutlined } from '@ant-design/icons';
 import FruitTable from '../component/info/index';
 import closeIcon from '../assets/icon/close.png'
