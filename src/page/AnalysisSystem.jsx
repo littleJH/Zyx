@@ -7,7 +7,7 @@ import Xiaoshou from '../component/xiaoshou/index'
 import Kucun from '../component/kucun/index';
 import LoginForm from '../component/log/index';
 import { InsertRowAboveOutlined } from '@ant-design/icons';
-import FruitTable from '../component/info/index';
+import FruitTable from '../component/fruitinfo/index';
 import closeIcon from '../assets/icon/close.png'
 
 const contentList = {
